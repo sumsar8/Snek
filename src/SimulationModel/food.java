@@ -4,6 +4,8 @@ import Shapes.Point;
 import Shapes.Shape;
 import Shapes.Sprite;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * This is a class
  * Created 2021-11-15
@@ -11,8 +13,8 @@ import Shapes.Sprite;
  * @author Magnus Silverdal
  */
 public class food {
-    public int x;
-    public int y;
+    public static int x;
+    public static int y;
 
     public food(int x, int y) {
         this.x = x;
@@ -24,7 +26,13 @@ public class food {
     }
 
     public void update() {
+        int randomNum1 = ThreadLocalRandom.current().nextInt(0,  25);
+        int randomNum2 = ThreadLocalRandom.current().nextInt(0,  25);
 
+        if(snake.x == this.x && snake.y == food.y){
+            this.x = randomNum1;
+            this.y = randomNum2;
+        }
     }
 
     public Sprite getSprite() {

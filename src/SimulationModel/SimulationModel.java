@@ -19,19 +19,12 @@ public class SimulationModel {
     snake s;
     food f;
     public SimulationModel() {
-        s = new snake(1,1,2);
-        f = new food(5,1);
+        s = new snake(1,1, 0);
+        f = new food(10,1);
     }
     public void update() {
         s.update();
         f.update();
-        int randomNum1 = ThreadLocalRandom.current().nextInt(0, 8 + 1);
-        int randomNum2 = ThreadLocalRandom.current().nextInt(0, 8 + 1);
-
-        if(s.x == f.x && s.y == f.y){
-            f.x = randomNum1;
-            f.y = randomNum2;
-        }
     }
 
     public ArrayList<Shape> getShapes() {
@@ -39,15 +32,5 @@ public class SimulationModel {
         shapes.add(s.getShape());
         shapes.add(f.getShape());
         return shapes;
-    }
-
-    public ArrayList<Sprite> getSprites() {
-        ArrayList<Sprite> sprites = new ArrayList<>();
-        sprites.add(s.getSprite());
-        sprites.add(f.getSprite());
-        return sprites;
-    }
-    public int getfoodx(){
-        return f.x;
     }
 }

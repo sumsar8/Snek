@@ -1,5 +1,4 @@
 package ScreenRenderer;
-import Shapes.Circle;
 import Shapes.Point;
 import Shapes.Shape;
 import Shapes.Sprite;
@@ -36,8 +35,8 @@ public class ScreenRenderer extends Canvas {
         this.WIDTH = width;
         this.HEIGTH = height;
         this.scale = scale;
-        image = new BufferedImage(WIDTH/scale, HEIGTH/scale, BufferedImage.TYPE_INT_RGB);
-        screen = new Screen(((DataBufferInt) image.getRaster().getDataBuffer()).getData(),image.getWidth(),
+        image = new BufferedImage(WIDTH / scale, HEIGTH / scale, BufferedImage.TYPE_INT_RGB);
+        screen = new Screen(((DataBufferInt) image.getRaster().getDataBuffer()).getData(), image.getWidth(),
                 image.getHeight());
         setPreferredSize(new Dimension(WIDTH, HEIGTH));
     }
@@ -65,11 +64,10 @@ public class ScreenRenderer extends Canvas {
             screen.draw((Point) s, 0xFFFFFF);
         }
     }
-
-    public void drawSprites(ArrayList<Sprite> sprites) {
-        screen.clear();
-        for (Sprite s : sprites) {
-            screen.draw(s);
+        public void drawSprites (ArrayList < Sprite > sprites) {
+            screen.clear();
+            for (Sprite s : sprites) {
+                screen.draw(s);
+            }
         }
-    }
 }

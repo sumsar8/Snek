@@ -16,7 +16,7 @@ public class Controller implements Runnable{
     private int fps = 25;
     private int ups = 3;
     private int width = 1000;
-    private int height = 1000;
+    private int height = 500;
     private int scale = 20;
     private JFrame frameNative;
     //private JFrame frameSprite;
