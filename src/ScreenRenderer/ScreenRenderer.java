@@ -1,7 +1,8 @@
 package ScreenRenderer;
 import Shapes.Point;
 import Shapes.Shape;
-import Shapes.Sprite;
+import SimulationModel.coin;
+import SimulationModel.snake;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -9,19 +10,6 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.util.ArrayList;
 
-/**
- * This is a class
- * Created 2021-10-18
- *
- * @author Magnus Silverdal
- */
-
-/**
- * A system for drawing pixelgraphics to the screen using native Java.
- * Created 2021-03-31
- *
- * @author Magnus Silverdal
- */
 public class ScreenRenderer extends Canvas {
     private int WIDTH;
     private int HEIGTH;
@@ -61,13 +49,10 @@ public class ScreenRenderer extends Canvas {
     public void draw(ArrayList<Shape> shapes) {
         screen.clear();
         for (Shape s : shapes) {
-            screen.draw((Point) s, 0xFFFFFF);
+            if (s instanceof snake)
+                screen.draw((Point) ((snake) s).getShape(), 0x88888);
+            else if (s instanceof coin)
+                screen.draw((Point) ((coin) s).getShape(), 0xebde34);
         }
     }
-        public void drawSprites (ArrayList < Sprite > sprites) {
-            screen.clear();
-            for (Sprite s : sprites) {
-                screen.draw(s);
-            }
-        }
 }

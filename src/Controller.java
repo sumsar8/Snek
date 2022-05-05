@@ -2,14 +2,9 @@ import ScreenRenderer.ScreenRenderer;
 import SimulationModel.SimulationModel;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-/**
- * This is a class
- * Created 2021-10-18
- *
- * @author Magnus Silverdal
- */
 public class Controller implements Runnable{
     private Thread thread;
     private boolean running = false;
@@ -37,16 +32,8 @@ public class Controller implements Runnable{
         frameNative.pack();
         frameNative.setLocationRelativeTo(null);
         frameNative.setVisible(true);
+        frameNative.setFocusable(true);
         frameNative.requestFocus();
-
-        //frameSprite = new JFrame(title+"Sprite");
-        //frameSprite.add(viewSprite);
-        //frameSprite.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frameSprite.setResizable(false);
-        //frameSprite.pack();
-        //frameSprite.setLocationRelativeTo(null);
-        //frameSprite.setVisible(true);
-        //frameSprite.requestFocus();
     }
 
     public synchronized void start() {
@@ -105,8 +92,15 @@ public class Controller implements Runnable{
         }
         stop();
     }
-
-    public static void main(String[] args) {
+    public void keyPressed(KeyEvent e){
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            System.out.println("Right key typed");
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            System.out.println("Left key typed");
+        }
+    }
+        public static void main(String[] args) {
         Controller c = new Controller();
         c.start();
     }

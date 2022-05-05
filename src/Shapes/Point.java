@@ -1,11 +1,5 @@
 package Shapes;
 
-/**
- * 2D point in screen coordinates
- * Created 2021-03-31
- *
- * @author Magnus Silverdal
- */
 public class Point extends Shape{
     private int x;
     private int y;
